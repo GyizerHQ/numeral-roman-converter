@@ -1,38 +1,40 @@
 #include <iostream>
-#include <cassert>
 
+#include <bits/stdc++.h>
+using namespace std;
 
-#include <string>
+int romantoint(string s)
+{
+    map<char, int> roman;
+    roman['I'] = 1;
+    roman['V'] = 5;
+    roman['X'] = 10;
+    roman['L'] = 50;
+    roman['C'] = 100;
+    roman['D'] = 500;
+    roman['M'] = 1000;
 
-class RomanNumerals{
-public:
-    std::string to_roman(unsigned int n){
-        return "";
+    int res = 0;
+
+    for (int i = 0; i < s.size(); i++)
+    {
+        if (roman[s[i]] < roman[s[i + 1]])
+        {
+            res -= roman[s[i]];
+        }
+        else
+        {
+            res += roman[s[i]];
+        }
     }
-    int from_roman(std::string rn){
-        return 0;
-    }
-};
-
-
-
-void test_roman_numerals() {
-    assert(RomanNumerals::to_roman(4) == "IV");
-    assert(RomanNumerals::to_roman(1) == "I");
-    assert(RomanNumerals::to_roman(4) == "IV");
-    assert(RomanNumerals::to_roman(9) == "IX");
-    assert(RomanNumerals::to_roman(58) == "LVIII");
-    assert(RomanNumerals::to_roman(1994) == "MCMXCIV");
-
-
-    assert(RomanNumerals::from_roman("I") == 1);
-    assert(RomanNumerals::from_roman("IV") == 4);
-    assert(RomanNumerals::from_roman("IX") == 9);
-    assert(RomanNumerals::from_roman("LVIII") == 58);
-    assert(RomanNumerals::from_roman("MCMXCIV") == 1994);
+    return res;
 }
 
-int main() {
-    test_roman_numerals();
+int main()
+{
+    string s = "IX";
+
+    int ans = romantoint(s);
+    cout << ans;
     return 0;
 }
