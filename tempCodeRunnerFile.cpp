@@ -1,3 +1,4 @@
+//this program for verifing you given numbers or roman values
 #include<iostream>
 #include<utility>
 #include<vector>
@@ -32,7 +33,7 @@ void Roman(int integer,string comp)
 	}
 	if(comp==result)
     {
-        cout<<Roman<<" is verified."<<endl;
+        cout<<ref<<" is verified."<<endl;
     }
 			// cout<<"Roman number of "<<ref<<" is "<<result<<endl;
 			// cout<<"-------------------------------------------------------"<<endl;
@@ -71,7 +72,7 @@ void Number(string Roman,int val)
     //cout<<"Roman numeral of "<<Roman<<" integer value is "<<result<<endl;
     if(result==val)
     {
-        cout<<val<<" is verified."<<endl;
+        cout<<Roman<<" is verified."<<endl;
     }
     
 
